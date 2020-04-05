@@ -3,9 +3,14 @@ class FindQuestionsApi
   URL = 'https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple'
   
   def call
+    request.map do |q|
+      Question.new(q['category'], q['type'], q['difficulty'], q['question'], q['correct_answer'], q['incorrect_answers'])
+    end
+  end
+  
+  def request
     respose = RestClient.get(URL)
     
-    body = JSON.parse(respose.body)
-    puts body.results
+    JSON.parse(respose.body)['results']
   end
 end

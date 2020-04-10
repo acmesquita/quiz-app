@@ -129,8 +129,7 @@ RSpec.describe FindQuestionsApi do
           }
         ]
       }
-      obj = double(FindQuestionsApi)
-      allow(obj).to receive(:request).and_return(mock)
+      allow_any_instance_of(FindQuestionsApi).to receive(:request).and_return(mock)
       questions = described_class.new.call
       expect(questions.size).to eql(10)
     end

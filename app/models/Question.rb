@@ -1,5 +1,6 @@
 class Question
 
+  attr_accessor :category, :type, :difficulty, :question, :correct_answer, :incorrect_answers
   def initialize(category, type, difficulty, question, correct_answer, incorrect_answers)
     @category = category
     @type = type

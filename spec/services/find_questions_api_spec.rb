@@ -132,7 +132,6 @@ RSpec.describe FindQuestionsApi do
       obj = double(FindQuestionsApi)
       allow(obj).to receive(:request).and_return(mock)
       questions = described_class.new.call
-      byebug
       expect(questions.size).to eql(10)
     end
   end

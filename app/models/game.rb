@@ -12,7 +12,7 @@
 # 
 class Game
 
-  attr_accessor :time_start, :time_end, :questions, :approves, :errors, :status, :percent_min, :percent_approves, :name_player, :question_current
+  attr_accessor :time_start, :time_end, :questions, :approves, :errors, :status, :percent_min, :percent_approves, :name_player, :question_current, :question_position
   
   def initialize(questions, name_player)
     @time_start = Time.zone.now
@@ -25,6 +25,7 @@ class Game
     @percent_approves = 0
     @name_player = name_player
     @question_current = questions.first
+    @question_position = 0
   end
 
 end
